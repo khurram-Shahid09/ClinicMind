@@ -244,7 +244,6 @@ const delays = track.map((t, i) => `[${i + 1}:a]aresample=48000,adelay=${Math.ro
 const filter = `[0:v]crop=${VIEW.width}:${VIEW.height - 10}:0:0[c];[c][${track.length + 1}:v]overlay=14:H-h-14[v];${delays};${track.map((_, i) => `[a${i}]`).join('')}amix=inputs=${track.length}:normalize=0[a]`;
 const r = spawnSync(ffmpegPath, ['-y', '-i', raw, ...inputs, '-i', BADGE, '-filter_complex', filter, '-map', '[v]', '-map', '[a]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '21', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', FINAL], { stdio: ['ignore', 'ignore', 'pipe'] });
 if (r.status !== 0) throw new Error(r.stderr.toString().slice(-900));
-// Taken just before the narration starts, so the thumbnail has no caption across it.
-const trendAt = track.find((t) => t.file.endsWith('trend.wav')).video - 0.45;
+const trendAt = track.find((t) => t.file.endsWith('trend.wav')).video + 3;
 spawnSync(ffmpegPath, ['-y', '-loglevel', 'error', '-ss', String(trendAt), '-i', FINAL, '-frames:v', '1', '-q:v', '2', POSTER]);
 console.log('Video saved:', FINAL, `${(fs.statSync(FINAL).size / 1048576).toFixed(1)} MB`);

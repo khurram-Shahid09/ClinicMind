@@ -14,3 +14,5 @@
 | `narration-short.json` | The short demo's script |
 
 Run `npm install` here first. Use `node record-demo.mjs --dry` to test the demo without recording it. The app must be running.
+
+Run `node make_poster.mjs` after recording the short demo to create a clean thumbnail.
