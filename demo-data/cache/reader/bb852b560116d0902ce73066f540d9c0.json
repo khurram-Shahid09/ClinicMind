@@ -1,0 +1,30 @@
+{
+ "doc_type": "prescription",
+ "readable": true,
+ "doc_date": "2023-03-18",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [
+  {
+   "name": "Amlodipine",
+   "dose": "5 mg",
+   "frequency": "once daily",
+   "box_2d": [
+    [
+     246,
+     73,
+     296,
+     706
+    ]
+   ],
+   "confidence": 0.99,
+   "doubt": null,
+   "possible_values": []
+  }
+ ],
+ "allergies": [],
+ "conditions": [],
+ "text": "Demo Family Clinic Dr. Demo\nPatient: Rashid Mehmood\nDate of birth: 14 Mar 1968 (55 y) Sex: Male\nFile No: CM-1042\nDate: 18 Mar 2023\nRx\n1. Amlodipine 5 mg - once daily\nBP raised. Continue metformin.\nSYNTHETIC - DEMO DATA"
+}

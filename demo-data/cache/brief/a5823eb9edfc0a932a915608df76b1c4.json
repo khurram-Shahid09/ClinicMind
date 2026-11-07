@@ -1,0 +1,40 @@
+{
+ "headline": "Morning Brief: Lab changes and new medication recorded.",
+ "items": [
+  {
+   "text": "Hemoglobin fell from 14.2 to 11.9 g/dL over 3 years.",
+   "fact_ids": [
+    19,
+    21,
+    23,
+    25,
+    27,
+    31
+   ]
+  },
+  {
+   "text": "Hemoglobin changed from 12.4 to 11.9 g/dL.",
+   "fact_ids": [
+    31
+   ]
+  },
+  {
+   "text": "Creatinine changed from 1.2 to 1.4 mg/dL.",
+   "fact_ids": [
+    32
+   ]
+  },
+  {
+   "text": "New medicine on record: Ibuprofen 400 mg, three times daily.",
+   "fact_ids": [
+    38
+   ]
+  },
+  {
+   "text": "No HbA1c on file for 8 months.",
+   "fact_ids": [
+    43
+   ]
+  }
+ ]
+}

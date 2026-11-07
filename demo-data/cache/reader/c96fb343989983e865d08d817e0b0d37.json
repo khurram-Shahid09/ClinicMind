@@ -1,0 +1,27 @@
+{
+ "doc_type": "lab_report",
+ "readable": true,
+ "doc_date": null,
+ "patient_name": null,
+ "file_no": null,
+ "date_of_birth": null,
+ "labs": [
+  {
+   "test": "Hemoglobin",
+   "value": "9.4",
+   "unit": "g/dL",
+   "normal_range": "11.5 - 16.5",
+   "box_2d": [
+    241,
+    135,
+    274,
+    807
+   ],
+   "confidence": 0.95
+  }
+ ],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [],
+ "text": "Sunrise Diagnostic Laboratory\n\nLaboratory Report\n\nTest\n\nHemoglobin\n\nResult\n\n9.4\n\nUnit\n\ng/dL\n\nNormal Range\n\n11.5 - 16.5"
+}

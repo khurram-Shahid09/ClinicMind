@@ -1,0 +1,43 @@
+{
+ "doc_type": "prescription",
+ "readable": true,
+ "doc_date": "2021-11-15",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [
+  {
+   "name": "Metformin",
+   "dose": "500 mg",
+   "frequency": "twice daily",
+   "box_2d": [
+    [
+     248,
+     86,
+     290,
+     617
+    ]
+   ],
+   "confidence": 0.99,
+   "doubt": null,
+   "possible_values": []
+  }
+ ],
+ "allergies": [],
+ "conditions": [
+  {
+   "name": "Diabetes",
+   "box_2d": [
+    [
+     324,
+     83,
+     355,
+     372
+    ]
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "text": "Demo Family Clinic Dr. Demo\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (53 y) Sex: Male\nDate: 15 Nov 2021\nRx\n1. Metformin 500 mg - twice daily\nDiabetes. Diet advice.\nSYNTHETIC - DEMO DATA"
+}

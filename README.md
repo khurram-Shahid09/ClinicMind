@@ -4,7 +4,7 @@
 
 A doctor clicks **Replay** and watches five years of a patient's records play out in 30 seconds on a 3D body. The replay pauses on a slow change that is easy to miss when reports are read one at a time. One click opens the original scanned reports with the exact values highlighted.
 
-> **Status:** Documentation complete. Build not started.
+> **Status:** Working demo. All 22 version 1 features are built.
 >
 > **Demo only:** This is a portfolio project that uses made-up patients. It is not a medical device, does not diagnose or recommend treatment, and must not be used with real patients in its current form.
 >
@@ -32,12 +32,28 @@ A doctor clicks **Replay** and watches five years of a patient's records play ou
 | 8 | [Demo script](docs/08-demo-script.md) | The full demo, step by step, with backups |
 | 9 | [Demo data](docs/09-demo-data.md) | The made-up patients and documents |
 | 10 | [Safety and privacy](docs/10-safety-and-privacy.md) | Product rules and requirements before real use |
-| 11 | [Evaluation](docs/11-evaluation.md) | How accuracy will be measured |
-| 12 | [Build plan](docs/12-build-plan.md) | Build phases, risks and open decisions |
+| 11 | [Evaluation](docs/11-evaluation.md) | Measured accuracy and its limits |
+| 12 | [Build plan](docs/12-build-plan.md) | What was built, what changed and what's next |
+
+## Run it
+
+You need Docker Desktop.
+
+```bash
+docker compose up --build
+```
+
+Then open <http://localhost:3000>. The demo starts from saved AI results, so it needs no API key. To process new files or ask new questions, copy `.env.example` to `.env` and add a Gemini API key.
+
+The **Reset** button returns the demo to its starting point.
+
+## Measured results
+
+On 21 pages of made-up documents, ClinicMind read 25 of 25 lab values correctly and placed all 25 highlights on the correct row. It attached no file to the wrong patient, and sent the smudged dose and blurred photo to a person. This is a small test on made-up data and doesn't prove real-world accuracy. See [Evaluation](docs/11-evaluation.md).
 
 ## Tech stack
 
-React, TypeScript, Three.js, Python, FastAPI, PostgreSQL, pgvector, OCR, the Claude API and speech-to-text. See [Architecture](docs/04-architecture.md) for details.
+React, TypeScript, Three.js, Python, FastAPI, PostgreSQL, the Gemini API and Docker. See [Architecture](docs/04-architecture.md) for details.
 
 ## Project structure
 
@@ -47,13 +63,13 @@ ClinicMind/
 ├── frontend/             React web app
 ├── backend/
 │   ├── app/
-│   │   ├── agents/       The 11 AI agents
-│   │   └── services/     Non-AI logic: trends, replay, alerts, OCR
+│   │   ├── agents/       The AI helpers
+│   │   └── services/     Non-AI logic: trends, replay, alerts
 │   └── tests/            Backend tests
 ├── demo-data/
-│   ├── patients/         Made-up patient records
-│   └── documents/        Made-up scanned reports and prescriptions
-├── evals/
-│   └── datasets/         Labelled documents for accuracy tests
-└── scripts/              Demo data generation and setup scripts
+│   ├── patients/         Made-up patient records and correct answers
+│   ├── documents/        Made-up scanned reports and prescriptions
+│   ├── audio/            Sample doctor dictation
+│   └── cache/            Saved AI results
+└── scripts/              Document generator and demo video recorder
 ```

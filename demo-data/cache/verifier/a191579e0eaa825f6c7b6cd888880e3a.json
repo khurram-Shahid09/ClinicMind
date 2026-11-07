@@ -1,0 +1,12 @@
+{
+ "labs": [],
+ "medicines": [
+  {
+   "name": "Metformin",
+   "dose": "mg – twice daily"
+  }
+ ],
+ "unclear": [
+  "800"
+ ]
+}

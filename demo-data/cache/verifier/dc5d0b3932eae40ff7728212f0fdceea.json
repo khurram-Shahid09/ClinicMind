@@ -1,0 +1,14 @@
+{
+ "labs": [
+  {
+   "test": "Creatinine",
+   "value": "1.2"
+  },
+  {
+   "test": "Fasting Glucose",
+   "value": "128"
+  }
+ ],
+ "medicines": [],
+ "unclear": []
+}

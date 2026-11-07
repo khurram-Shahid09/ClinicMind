@@ -44,7 +44,7 @@ All of these are required first:
 
 1. **Legal review:** Advice on Pakistani health and data protection rules, consent, record retention and regulatory status.
 2. **Patient consent:** A clear process that explains that an external AI service may process documents.
-3. **Vendor review:** Check data handling and retention terms for AI, OCR, speech and hosting providers.
+3. **Vendor review:** Check data handling and retention terms for AI and hosting providers. The free Gemini tier used in this demo must not receive real patient data.
 4. **Access control:** Real user accounts, role-based access and session limits.
 5. **Protection:** Encryption in transit and at rest, backups, and a tested incident plan.
 6. **Audit:** A complete record of access and changes.

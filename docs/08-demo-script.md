@@ -1,6 +1,6 @@
 # 8. Demo script
 
-**Length:** About 6 minutes. The first 60 seconds can stand alone as a short demo.
+**Length:** About 4.5 minutes in the recorded video, which is made by `scripts/record-demo.mjs`. The first 60 seconds can stand alone as a short demo.
 
 **Story:** The hero patient is Rashid Mehmood, a made-up 58-year-old with type 2 diabetes and hypertension. All clinical details must be reviewed by a doctor before the demo.
 
@@ -20,9 +20,8 @@
 | 2 | 0:35 | Replay pauses automatically | Hidden Trend: hemoglobin fell from 14.2 to 11.9 over 3 years across 6 reports | "The trend shows when the reports are compared. ClinicMind flags it for review and doesn't say why it happened." |
 | 3 | 0:55 | Click **View sources** | Source reports with the values highlighted | "Every value goes back to its original report." |
 | 4 | 1:15 | Open Upload and drop 20 messy files | Live Agent Board runs | "Now here's how it got there. Each agent has one job." |
-| 5 | 2:00 | Open the flagged item | Metformin dose may be 500 mg or 850 mg, and the handwriting is unclear | "When it's unsure, it asks instead of guessing." |
+| 5 | 2:00 | Open the flagged item | Metformin dose may be 500 mg or 800 mg, and the handwriting is unclear | "When it's unsure, it asks instead of guessing." |
 | 6 | 2:20 | Correct it to 500 mg and open the activity log | The record updates, and the log shows the correction | "A person makes the final call, and every step is recorded." |
-| 7 | 2:35 | Open **Today** | Morning Clinic Brief, with changes and "No HbA1c on file for 8 months" | "This is ready before clinic starts." |
 | 8 | 3:00 | Ask **"Pichli visit se kya change hua?"** | Sourced Urdu answer | "The doctor can ask in the language they think in." |
 | 9 | 3:20 | Click an answer's source chip | Highlighted report | "The answer is checkable too." |
 | 10 | 3:35 | Dictate the visit note and prescription | Note and prescription drafts | "These contain only what the doctor said." |

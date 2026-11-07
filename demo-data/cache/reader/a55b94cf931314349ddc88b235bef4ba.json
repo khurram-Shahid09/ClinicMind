@@ -1,0 +1,38 @@
+{
+ "doc_type": "summary",
+ "readable": true,
+ "doc_date": "2026-03-06",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [
+  {
+   "name": "Type 2 diabetes",
+   "box_2d": [
+    [
+     270,
+     201,
+     283,
+     373
+    ]
+   ],
+   "confidence": 1.0
+  },
+  {
+   "name": "High blood pressure",
+   "box_2d": [
+    [
+     269,
+     381,
+     286,
+     595
+    ]
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "text": "City Care Hospital\nDemo address, Lahore\nClinic Visit Letter\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (57 y) Sex: Male\nDate: 06 Mar 2026\nReviewed test results with the patient.\nConditions: Type 2 diabetes. High blood pressure.\nSigned: Demo Consultant\nSYNTHETIC - DEMO DATA"
+}

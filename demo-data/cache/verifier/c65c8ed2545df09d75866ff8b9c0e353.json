@@ -1,0 +1,14 @@
+{
+ "labs": [
+  {
+   "test": "Hemoglobin",
+   "value": "11.9"
+  },
+  {
+   "test": "Creatinine",
+   "value": "1.4"
+  }
+ ],
+ "medicines": [],
+ "unclear": []
+}

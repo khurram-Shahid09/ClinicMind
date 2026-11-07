@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: clinicmind
+      POSTGRES_PASSWORD: clinicmind
+      POSTGRES_DB: clinicmind
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U clinicmind"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql://clinicmind:clinicmind@db:5432/clinicmind
+      DEMO_DATA_PATH: /demo-data
+      STORAGE_PATH: /storage
+    volumes:
+      - ./backend/app:/srv/app
+      - ./backend/tests:/srv/tests
+      - ./demo-data:/demo-data
+      - storage:/storage
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
+volumes:
+  dbdata:
+  storage:

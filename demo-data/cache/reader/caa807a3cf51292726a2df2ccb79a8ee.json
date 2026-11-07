@@ -1,0 +1,46 @@
+{
+ "doc_type": "summary",
+ "readable": true,
+ "doc_date": "2022-12-08",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [],
+ "allergies": [
+  {
+   "substance": "Penicillin",
+   "reaction": "skin rash",
+   "box_2d": [
+    342,
+    79,
+    354,
+    380
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "conditions": [
+  {
+   "name": "Type 2 diabetes",
+   "box_2d": [
+    298,
+    202,
+    312,
+    369
+   ],
+   "confidence": 1.0
+  },
+  {
+   "name": "High blood pressure",
+   "box_2d": [
+    298,
+    381,
+    312,
+    597
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "text": "City Care Hospital\nDemo address, Lahore\nDischarge Summary\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (54 y) Sex: Male\nDate: 08 Dec 2022\nAdmitted with high blood pressure and headache. Treated and discharged after two days.\nConditions: Type 2 diabetes. High blood pressure.\nAllergy: Penicillin (skin rash).\nSigned: Demo Consultant\nSYNTHETIC - DEMO DATA"
+}

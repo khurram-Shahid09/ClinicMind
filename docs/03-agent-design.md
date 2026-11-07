@@ -15,23 +15,22 @@ Most agents are controlled workflow steps, because document processing has a kno
 | Agent | Input | Output | Type | Human checkpoint |
 |---|---|---|---|---|
 | **Intake** | Uploaded PDF or images | Separate documents, page order and document type | Workflow step | Low-confidence types go to review |
-| **Patient Match** | Names, IDs and dates in the document | Suggested patient and confidence | Code + AI | Required unless two identifiers match exactly |
-| **Extraction** | Page image and OCR lines | Labs, medicines, diagnoses and dates, with source line IDs | Workflow step | None directly |
+| **Patient Match** | Name and file number in the document | Suggested patient | Code only | Required unless both match exactly |
+| **Extraction** | Page image | Labs, medicines, diagnoses and dates, with their positions on the page | Same AI call as Intake | None directly |
 | **Verification** | Extracted fact and its source | Verified or needs review | Code + separate AI check | Doubtful items go to review |
-| **Change** | Verified facts and last visit date | Changes, trends and missing records | Code + AI wording | Doctor reads the result |
+| **Change** | Verified facts and last visit date | Changes, trends and missing records | Code only | Doctor reads the result |
 | **Brief** | Verified facts and changes | Short sourced brief | Workflow step | Doctor reads the result |
 | **Follow-up** | Verified records and clinic follow-up rules | Overdue items and reminder drafts | Code + AI drafting | Approval required before a draft is marked ready |
 | **Ask** | Doctor's question | Sourced answer | Tool-using agent | Doctor verifies through sources |
 | **Scribe** | Dictation transcript | Note and prescription drafts | Workflow step | Approval required |
 | **Document** | Approved record data | Urdu sheet, referral letter or certificate draft | Workflow step | Approval required |
-| **Daily Ops** | Day's activity and pending items | End-of-day list | Code + AI wording | Doctor reads the result |
+| **Daily Ops** | Day's activity and pending items | End-of-day list | Code only | Doctor reads the result |
 
 ## Workflow
 
 ```mermaid
 flowchart TD
-    U[Files uploaded] --> O[OCR]
-    O --> I[Intake Agent]
+    U[Files uploaded] --> I[Intake Agent]
     I --> M[Patient Match Agent]
     M -->|Not certain| R[Review queue]
     M -->|Exact match| E[Extraction Agent]
@@ -50,26 +49,28 @@ flowchart TD
 
 ## Verification rules
 
-A value becomes **verified** only if all these checks pass:
+A lab value becomes **verified** only if all these checks pass:
 
-1. **Source exists:** The fact points to real OCR lines on a real page.
-2. **Text match:** The number, unit or medicine name appears in the cited line, allowing for known OCR confusions such as 0 and O.
-3. **Valid format:** The value is plausible for that test and unit. A value outside the plausible range is sent to review, not changed.
-4. **Second read:** A separate AI call reads the cropped source area without seeing the first answer, and the two readings must agree.
-5. **Date check:** The report date is present and is not in the future.
+1. **Known test:** The test name is on the reference list.
+2. **Valid value:** The value is a number in a plausible range, with the expected unit.
+3. **Location:** Its position on the page is valid.
+4. **Confidence:** The AI is confident in its reading.
+5. **Second reading:** A separate AI call reads the page again, and the values must match.
 
-Any failure sends the item to the review queue with the reason shown. Unverified values never appear as facts in trends, briefs or alerts.
+Medicines also go to a person if the AI reports any doubt. Allergies and conditions must have a valid position and high confidence. A page with no readable name or file number is treated as unreadable.
+
+Any failure sends the item to **Needs Checking** with the reason shown. Unverified values never appear as facts in trends, briefs or alerts.
 
 ## Ask Agent tools
 
 | Tool | Purpose |
 |---|---|
-| `get_patient_summary` | Reads conditions, allergies and current medicines |
-| `get_lab_trend` | Returns a lab's values and dates by code |
-| `get_medicine_history` | Returns medicine events by date |
-| `get_changes_since` | Returns changes since a given date |
-| `search_documents` | Finds relevant document text by keyword and meaning |
-| `get_source` | Returns the source page and highlight for a fact |
+| `get_patient_summary` | Reads conditions, allergies and recorded medicines |
+| `get_changes_since_last_visit` | Returns changes since the last visit |
+| `get_missing_records` | Returns overdue or missing records |
+| `get_lab_history` | Returns a lab's values and dates |
+| `get_medicine_history` | Returns recorded medicines by date |
+| `search_documents` | Finds document text by keyword |
 
 **Rules:**
 
@@ -85,17 +86,12 @@ Any failure sends the item to the review queue with the reason shown. Unverified
 - Code compares each drafted medicine, dose and duration with the transcript, and any mismatch blocks approval until it is resolved.
 - Unclear drug names are marked for the doctor to confirm, not guessed.
 
-## Claude API implementation notes
-
-Checked against the Claude API guidance on 7 November 2026. Recheck these when the code is written.
+## Gemini implementation notes
 
 | Topic | Decision |
 |---|---|
-| **Model** | `claude-opus-5-5` for all agents at first. Any cheaper model must first pass the same [evaluation](11-evaluation.md). |
-| **Thinking and effort** | Thinking cannot be disabled on this model. Set `output_config.effort` explicitly for each agent, because the default is `medium`. |
-| **Structured results** | Use `output_config.format` with a schema for extraction and verification. |
-| **Tool choice** | Forced tool choice returns an error on this model. Use `auto`, `strict: true` tools and clear instructions. |
-| **Source references** | API citations cannot be combined with structured output and give page-level PDF locations. ClinicMind therefore uses its own OCR line IDs. |
-| **Morning brief** | Prepared ahead of time. Batch processing can be used if it costs less and timing allows. |
-| **Long responses** | Use streaming for long requests. |
-| **Refusals** | Check `stop_reason` before reading content. Enable the server-side fallback when the code is written, and send anything still refused to the review queue. |
+| **Models** | The free tier limits each model to a small number of daily requests, so the app moves through a list of free models. See [Architecture](04-architecture.md). |
+| **Structured results** | JSON responses are read and then checked by code. |
+| **Source positions** | Gemini returns each fact's position on the page. |
+| **Speech** | Gemini hears the dictation audio directly, so no separate speech service is needed. |
+| **Urdu** | Some models answer in Roman letters or Hindi script, so code checks the script before an answer is shown. |

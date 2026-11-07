@@ -1,0 +1,23 @@
+{
+ "transcript": "Patient complains of sore throat for three days. Throat is red, no fever. Prescribe amoxicillin 500 mg three times a day for five days. Continue metformin 500 mg twice a day. Plan: drink warm fluids and come back after two weeks.",
+ "note": {
+  "complaint": "Sore throat for three days",
+  "findings": "Throat is red, no fever",
+  "plan": "Drink warm fluids and come back after two weeks"
+ },
+ "prescription": [
+  {
+   "name": "amoxicillin",
+   "dose": "500 mg",
+   "frequency": "three times a day",
+   "duration": "five days"
+  },
+  {
+   "name": "metformin",
+   "dose": "500 mg",
+   "frequency": "twice a day",
+   "duration": ""
+  }
+ ],
+ "uncertain_terms": []
+}

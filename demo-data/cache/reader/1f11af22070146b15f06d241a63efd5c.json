@@ -1,0 +1,24 @@
+{
+ "doc_type": "summary",
+ "readable": true,
+ "doc_date": "2025-06-14",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [
+  {
+   "name": "Type 2 diabetes",
+   "box_2d": [
+    263,
+    209,
+    286,
+    380
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "text": "City Care Hospital\nDemo address, Lahore\nSpecialist Eye Clinic Letter\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (57 y) Sex: Male\nDate: 14 Jun 2025\nRoutine diabetic eye check. No major change seen.\nConditions: Type 2 diabetes.\nPlease repeat the eye check in one year.\nSigned: Demo Consultant\nSYNTHETIC - DEMO DATA"
+}

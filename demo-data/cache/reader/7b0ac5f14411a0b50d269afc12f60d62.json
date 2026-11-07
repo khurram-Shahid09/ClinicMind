@@ -1,0 +1,31 @@
+{
+ "doc_type": "prescription",
+ "readable": true,
+ "doc_date": "2024-10-20",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [],
+ "medicines": [
+  {
+   "name": "Metformin",
+   "dose": "800 mg",
+   "frequency": "twice daily",
+   "box_2d": [
+    248,
+    96,
+    281,
+    607
+   ],
+   "confidence": 0.5,
+   "doubt": "The '800' looks like it was written over '500' or vice versa, creating ambiguity.",
+   "possible_values": [
+    "500 mg",
+    "800 mg"
+   ]
+  }
+ ],
+ "allergies": [],
+ "conditions": [],
+ "text": "Demo Family Clinic Dr. Demo\nPatient: Rashid Mehmood File No: CM-1042\nDate of birth: 14 Mar 1968 (56 y) Sex: Male Date: 20 Oct 2024\nRx\n1. Metformin 800 mg - twice daily\nReview in 6 months.\nSYNTHETIC - DEMO DATA"
+}

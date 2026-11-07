@@ -1,0 +1,14 @@
+{
+ "labs": [],
+ "medicines": [
+  {
+   "name": "Amlodipine",
+   "dose": "5 mg — once daily"
+  },
+  {
+   "name": "metformin",
+   "dose": null
+  }
+ ],
+ "unclear": []
+}

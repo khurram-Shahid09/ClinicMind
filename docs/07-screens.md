@@ -6,10 +6,10 @@ The app is a desktop-first web app with a light, clinical look. Tablets are supp
 |---|---|---|---|
 | 1 | Today | Clinic list and briefs | W3, R6 |
 | 2 | Patient profile | One patient's full record | R1, R3, R4, R5, R6 |
-| 3 | Patient Story Replay | Visual history | W1, W2 |
+| 3 | Patient Story | Visual history | W1, W2 |
 | 4 | Source viewer | Original document with highlight | W5 |
 | 5 | Upload and Agent Board | Live processing | R2, W4, W6 |
-| 6 | Review queue | Resolve doubtful items | R7, W6 |
+| 6 | Needs Checking | Resolve doubtful items | R7, W6 |
 | 7 | Ask panel | Sourced questions and answers | W7 |
 | 8 | Visit workspace | Dictation and drafts | D1, D2, D3, D4, D5 |
 | 9 | Follow-ups | Approve reminder drafts | R8 |
@@ -63,7 +63,7 @@ Values waiting for review are marked and left out of trends.
 
 ## 7. Ask panel
 
-- Text box that accepts Urdu, Roman Urdu or English, with optional voice input
+- Text box that accepts Urdu, Roman Urdu or English
 - Answers appear in the question's language, with source chips
 - Clear "Not found in this patient's record" state
 - A note saying ClinicMind reports records and does not give medical advice

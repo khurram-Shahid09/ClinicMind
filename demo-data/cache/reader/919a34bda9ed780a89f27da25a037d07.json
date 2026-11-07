@@ -1,0 +1,40 @@
+{
+ "doc_type": "lab_report",
+ "readable": true,
+ "doc_date": "2025-04-11",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [
+  {
+   "test": "Hemoglobin",
+   "value": "12.9",
+   "unit": "g/dL",
+   "normal_range": "13.0-17.0",
+   "box_2d": [
+    273,
+    93,
+    292,
+    737
+   ],
+   "confidence": 0.99
+  },
+  {
+   "test": "Creatinine",
+   "value": "1.1",
+   "unit": "mg/dL",
+   "normal_range": "0.7-1.3",
+   "box_2d": [
+    315,
+    93,
+    335,
+    712
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [],
+ "text": "Sunrise Diagnostic Laboratory\nDemo address, Lahore\nLaboratory Report\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (57 y) Sex: Male\nDate: 11 Apr 2025\nTest Result Unit Normal range\nHemoglobin 12.9 g/dL 13.0-17.0\nCreatinine 1.1 mg/dL 0.7-1.3\nChecked by: Demo Pathologist. End of report.\nSYNTHETIC - DEMO DATA"
+}

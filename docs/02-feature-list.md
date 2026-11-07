@@ -1,6 +1,6 @@
 # 2. Feature list
 
-Version 1 has **22 features**. Each one must appear in the demo unless marked as a backup or stretch item in the [build plan](12-build-plan.md).
+Version 1 has **22 features**, and all of them are built. Medical certificates and voice recording are available in the app but are not shown in the demo video.
 
 ## Signature features
 

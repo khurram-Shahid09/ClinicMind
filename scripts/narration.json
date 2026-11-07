@@ -1,0 +1,20 @@
+{
+  "intro": "Meet ClinicMind. Doctors often have only a few minutes with each patient, while the patient's history sits in a pile of old paper. ClinicMind turns that pile into a clear story the doctor can check. Everything you'll see uses made-up patients.",
+  "today": "It's Monday morning. Before clinic starts, ClinicMind has already prepared a short brief for every patient on today's list.",
+  "patient": "This is Rashid, a made-up patient with diabetes and high blood pressure. With one click, we can play his story.",
+  "replay": "Five years of reports, medicines and conditions now play out in thirty seconds. Each dot is a real result taken from his records. On its own, each report may not look alarming. But watch what happens when ClinicMind compares them all.",
+  "trend": "Here's the moment that matters. His hemoglobin fell slowly, from fourteen point two to eleven point nine, over three years. ClinicMind flags it for the doctor, and doesn't say why it happened. That's the doctor's decision.",
+  "source": "And the doctor doesn't have to take the AI's word for it. One click opens the original report, with the exact line highlighted.",
+  "board": "So how did all this get here? Let's add twenty messy files, and watch the AI helpers work. One sorts the files. One finds the patient. One reads the details. And one reads everything again, to double-check.",
+  "board_done": "Most files are done. But some are unclear, and the AI won't guess. It asks a person.",
+  "review": "This handwritten dose is smudged. It could say five hundred or eight hundred. The doctor looks at the original, and makes the final call.",
+  "review_other": "This file belongs to someone with a similar name. So it stays out of Rashid's record. And this photo is too blurry to trust.",
+  "activity": "Every step is recorded, so it's always clear who did what.",
+  "ask": "The doctor can also ask questions in everyday language, even in Roman Urdu. The answer comes back in Urdu, using only this patient's records, and its source is one click away.",
+  "dictate": "During the visit, the doctor simply speaks. ClinicMind writes the note and prescription, using only the doctor's own words.",
+  "alert": "But look at this warning. The doctor prescribed amoxicillin, and an old hospital letter records a penicillin allergy. It would be easy to miss in a pile of paper. The doctor decides what to change.",
+  "documents": "Once it's approved, the patient gets simple instructions in Urdu. And a referral letter takes just one click, for the doctor to review.",
+  "followup": "Rashid's blood sugar test is overdue, so a reminder is ready. Nothing goes out without the doctor's approval.",
+  "endofday": "And at the end of the day, one simple page shows what's still left to do.",
+  "close": "ClinicMind doesn't replace the doctor's judgment. It makes sure the doctor sees the patient's full story, with proof, before making a decision."
+}

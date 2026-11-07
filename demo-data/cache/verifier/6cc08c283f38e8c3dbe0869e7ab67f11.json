@@ -1,0 +1,14 @@
+{
+ "labs": [
+  {
+   "test": "Hemoglobin",
+   "value": "12.4"
+  },
+  {
+   "test": "HbA1c",
+   "value": "7.1"
+  }
+ ],
+ "medicines": [],
+ "unclear": []
+}

@@ -1,0 +1,40 @@
+{
+ "doc_type": "lab_report",
+ "readable": true,
+ "doc_date": "2023-10-06",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [
+  {
+   "test": "Hemoglobin",
+   "value": "14.2",
+   "unit": "g/dL",
+   "normal_range": "13.0-17.0",
+   "box_2d": [
+    272,
+    80,
+    302,
+    915
+   ],
+   "confidence": 0.99
+  },
+  {
+   "test": "HbA1c",
+   "value": "7.2",
+   "unit": "%",
+   "normal_range": "4.0-5.6",
+   "box_2d": [
+    314,
+    80,
+    345,
+    915
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [],
+ "text": "Sunrise Diagnostic Laboratory\nDemo address, Lahore\n\nLaboratory Report\n\nPatient: Rashid Mehmood\nFile No: CM-1042\nDate of birth: 14 Mar 1968 (55 y) Sex: Male\nDate: 06 Oct 2023\n\nTest Result Unit Normal range\nHemoglobin 14.2 g/dL 13.0-17.0\nHbA1c 7.2 % 4.0-5.6\n\nChecked by: Demo Pathologist. End of report.\nSYNTHETIC - DEMO DATA"
+}

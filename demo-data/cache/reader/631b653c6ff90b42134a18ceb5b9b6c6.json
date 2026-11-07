@@ -1,0 +1,44 @@
+{
+ "doc_type": "lab_report",
+ "readable": true,
+ "doc_date": "2026-08-18",
+ "patient_name": "Rashid Mehmood",
+ "file_no": "CM-1042",
+ "date_of_birth": "1968-03-14",
+ "labs": [
+  {
+   "test": "Creatinine",
+   "value": "1.2",
+   "unit": "mg/dL",
+   "normal_range": "0.7-1.3",
+   "box_2d": [
+    [
+     271,
+     91,
+     292,
+     736
+    ]
+   ],
+   "confidence": 1.0
+  },
+  {
+   "test": "Fasting Glucose",
+   "value": "128",
+   "unit": "mg/dL",
+   "normal_range": "70-100",
+   "box_2d": [
+    [
+     312,
+     91,
+     335,
+     735
+    ]
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "medicines": [],
+ "allergies": [],
+ "conditions": [],
+ "text": "Sunrise Diagnostic Laboratory Demo address, Lahore Laboratory Report Patient: Rashid Mehmood File No: CM-1042 Date of birth: 14 Mar 1968 (58 y) Sex: Male Date: 18 Aug 2026 Test Result Unit Normal range Creatinine 1.2 mg/dL 0.7-1.3 Fasting Glucose 128 mg/dL 70-100 Checked by: Demo Pathologist. End of report. SYNTHETIC - DEMO DATA"
+}

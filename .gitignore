@@ -34,3 +34,7 @@ private-data/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Scripts and video output
+scripts/node_modules/
+demo-video/
