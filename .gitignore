@@ -1,0 +1,36 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Local data
+storage/
+*.sqlite3
+*.log
+
+# Evaluation output
+evals/results/
+
+# Real patient files must never be committed
+real-data/
+private-data/
+
+# Editor and system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
