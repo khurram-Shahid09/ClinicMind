@@ -10,6 +10,10 @@ DEMO_DATA = Path(os.getenv("DEMO_DATA_PATH", "demo-data"))
 STORAGE = Path(os.getenv("STORAGE_PATH", "storage"))
 TODAY = date.fromisoformat(os.getenv("DEMO_TODAY", "2026-11-09"))
 DOCTOR_NAME = os.getenv("DOCTOR_NAME", "Dr. Ahmed Raza")
+# Address used inside QR codes. Set it to this computer's network address to scan them from a real phone.
+PUBLIC_URL = os.getenv("PUBLIC_URL", "")
+# Minutes between automatic alert checks. 0 turns them off.
+AUTOMATION_INTERVAL = float(os.getenv("AUTOMATION_INTERVAL_MINUTES", "15"))
 
 # Seconds between live AI calls, to stay inside free-tier limits.
 AI_MIN_INTERVAL = float(os.getenv("AI_MIN_INTERVAL", "5"))

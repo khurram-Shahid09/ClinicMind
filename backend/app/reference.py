@@ -1,4 +1,5 @@
 """Reference data for the demo. A qualified doctor must review all of this before it is relied on."""
+import re
 
 # watch: the direction worth flagging. threshold: smallest total change that counts as a slow change.
 LAB_TESTS = {
@@ -26,6 +27,26 @@ FOLLOW_UP_RULES = [
 ]
 
 CONDITION_REGIONS = {"blood pressure": "heart", "hypertension": "heart", "diabetes": "pancreas"}
+
+
+# Limits for home readings. A doctor must set these for each clinic.
+READING_LIMITS = {
+    "bp": {"name": "Blood pressure", "urdu": "بلڈ پریشر کی ریڈنگ", "high": 180, "high2": 110, "low": 80, "min": 50, "max": 300},
+    "sugar": {"name": "Blood sugar", "urdu": "شوگر کی ریڈنگ", "high": 300, "low": 70, "min": 15, "max": 900},
+}
+
+# Plain words for the patient page.
+LAB_MEANING = {
+    "hb": {"en": "Carries oxygen in your blood.", "ur": "خون میں آکسیجن پہنچاتا ہے۔"},
+    "hba1c": {"en": "Shows your average blood sugar over about 3 months.", "ur": "تقریباً 3 مہینوں کی اوسط شوگر بتاتا ہے۔"},
+    "creatinine": {"en": "Helps show how well your kidneys are working.", "ur": "گردوں کے کام کے بارے میں بتاتا ہے۔"},
+    "glucose": {"en": "Your blood sugar after not eating.", "ur": "خالی پیٹ شوگر کی مقدار۔"},
+}
+
+
+def outside_range(value, normal_range):
+    m = re.match(r"\s*([\d.]+)\s*-\s*([\d.]+)", normal_range or "")
+    return bool(m and value is not None and not float(m.group(1)) <= value <= float(m.group(2)))
 
 
 def lab_code(name):

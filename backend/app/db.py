@@ -34,6 +34,7 @@ def run(sql, params=None):
 def init_schema():
     with connect() as c:
         c.execute((Path(__file__).parent / "schema.sql").read_text())
+        c.execute((Path(__file__).parent / "schema_extras.sql").read_text())
 
 
 def log_run(agent, summary, patient_id=None, document_id=None, status="done", actor="AI helper", saved=False):

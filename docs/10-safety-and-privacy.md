@@ -9,14 +9,14 @@ ClinicMind version 1 is a portfolio demo. It uses made-up patients, is not a med
 | # | Rule | How it is enforced |
 |---|---|---|
 | 1 | ClinicMind never diagnoses or suggests treatment | Agent instructions, restricted outputs and test cases |
-| 2 | The doctor makes all medical decisions | Approval is required for clinical drafts |
+| 2 | The doctor makes all medical decisions | Approval is required for clinical drafts, and new results go to the doctor first |
 | 3 | Every fact links to its source | Code rejects facts and answers without valid source references |
 | 4 | Missing data is shown as missing | Separate "not found" states, never implied normal results |
 | 5 | Unverified data is not treated as fact | Trends, briefs and alerts use only verified or corrected values |
 | 6 | Prescriptions contain only what the doctor dictated | Code compares the draft with the transcript |
 | 7 | "No alert" never implies safety | Required text on the prescription screen |
 | 8 | Trends do not state causes | AI receives calculated values only, and wording is tested |
-| 9 | No patient message is sent in version 1 | No sending service is connected |
+| 9 | Routine reminders can go out automatically only if the clinic turns the rule on and the patient agreed | Each rule has a switch, and code checks the patient's agreement. Delivery is simulated until a real service is connected. |
 | 10 | Text inside documents cannot instruct agents | Documents are treated as data, and tools are limited by code |
 
 ## Main risks
@@ -29,6 +29,8 @@ ClinicMind version 1 is a portfolio demo. It uses made-up patients, is not a med
 | AI invents a fact | False belief about the patient | Source checks and rejection of unknown references |
 | Doctor over-trusts the summary | Missed information | Source links and clear limits |
 | Misheard drug name | Wrong prescription draft | Uncertain terms are marked, and approval is required |
+| Patient waits with an urgent symptom | Delayed emergency care | Chest pain and readings over the limit show urgent guidance and alert the doctor at once |
+| Someone guesses a patient link | Private information is exposed | Long random links and a birth-year check in the demo. Real use needs one-time codes. |
 | Too many alerts | Important alerts are ignored | Only record-based alerts and conservative trend rules |
 | A trend looks like a diagnosis | Unnecessary worry or wrong conclusion | Neutral wording and "for doctor review" labels |
 

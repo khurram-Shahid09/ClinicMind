@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { QRCodeSVG } from 'qrcode.react';
 import { api, post, prettyDate } from '../api';
 import { Loading, SourceChip, SourceProvider, Sparkline } from '../components';
 
@@ -42,10 +43,49 @@ function AskPanel({ patientId }: { patientId: string }) {
   );
 }
 
+function ConnectedCard({ c }: { c: any }) {
+  const bp = c.readings.filter((r: any) => r.kind === 'bp');
+  const sugar = c.readings.filter((r: any) => r.kind === 'sugar');
+  const flagged = c.readings.filter((r: any) => r.flagged);
+  const series = bp.length ? bp : sugar;
+  const last = series[series.length - 1];
+  return (
+    <section className="card" data-testid="from-patient">
+      <h2>From the patient's phone</h2>
+      <div className="connected">
+        <div><h3 className="muted small">Medicine ticks, last 14 days</h3><div className="big-value">{c.adherence === null ? 'Not used yet' : `${c.adherence}%`}</div><p className="small muted">Self-reported by the patient.</p></div>
+        <div><h3 className="muted small">Home readings</h3>{last ? <><div className="big-value" style={last.flagged ? { color: 'var(--red)' } : undefined}>{last.kind === 'bp' ? `${last.value}/${last.value2}` : last.value}</div><Sparkline points={series.map((r: any) => ({ value: r.value }))} height={44} color={flagged.length ? '#bf3430' : '#0d7a78'} /></> : <p className="muted">None yet</p>}</div>
+        <div><h3 className="muted small">Before this visit</h3>{c.previsit ? <p>{c.previsit.symptoms.join(', ')}{c.previsit.question && <><br /><strong>Asks:</strong> {c.previsit.question}</>}</p> : <p className="muted">Nothing sent yet</p>}</div>
+      </div>
+    </section>
+  );
+}
+
+function QrModal({ c, name, onClose }: { c: any; name: string; onClose: () => void }) {
+  const base = c.public_url || window.location.origin;
+  const url = `${base}/my/${c.portal_token}`;
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="qr-modal" onClick={(e) => e.stopPropagation()} data-testid="qr-modal">
+        <h2 style={{ marginBottom: 4 }}>{name}'s health page</h2>
+        <p className="small muted" style={{ marginBottom: 12 }}>Print this on the prescription. The patient scans it and enters their birth year.</p>
+        <div className="qr-box" data-testid="qr-code"><QRCodeSVG value={url} size={210} /></div>
+        <div className="row" style={{ justifyContent: 'center', marginTop: 14 }}>
+          <a className="btn primary" href={url} data-testid="open-portal">Open as the patient</a>
+          <button className="btn" onClick={() => window.print()}>Print</button>
+          <button className="btn" onClick={onClose}>Close</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Patient() {
   const { id } = useParams();
   const [p, setP] = useState<any>(null);
-  useEffect(() => { api(`/patients/${id}`).then(setP); }, [id]);
+  const [c, setC] = useState<any>(null);
+  const [showQr, setShowQr] = useState(false);
+  useEffect(() => { api(`/patients/${id}`).then(setP); api(`/patients/${id}/connected`).then(setC); }, [id]);
   if (!p) return <Loading />;
   const trend = p.trends[0];
   return (
@@ -58,6 +98,7 @@ export default function Patient() {
               <p className="sub">{p.age} years, {p.sex}. File no {p.mrn}.</p>
             </div>
             <div className="row">
+              {c && <button className="btn" onClick={() => setShowQr(true)} data-testid="show-qr">▦ Patient QR code</button>}
               {p.visit && <Link className="btn" to={`/visits/${p.id}/${p.visit.id}`} data-testid="start-visit">Start today's visit</Link>}
               <Link className="btn primary big" to={`/patients/${p.id}/story`} data-testid="play-story">▶ Play patient story</Link>
             </div>
@@ -68,6 +109,9 @@ export default function Patient() {
             <div><h3>Medicines on record</h3>{p.medicines.map((m: any) => <div key={m.id}>{m.label} {m.value_text} <SourceChip ids={[m.id]} label="Source" /></div>)}{!p.medicines.length && <span className="muted">None on record</span>}</div>
           </div>
         </section>
+
+        {c && <ConnectedCard c={c} />}
+        {showQr && c && <QrModal c={c} name={p.name} onClose={() => setShowQr(false)} />}
 
         {trend && (
           <section className="card slow" data-testid="slow-change">

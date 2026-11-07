@@ -1,0 +1,21 @@
+{
+  "intro": "ClinicMind now reaches beyond the clinic. Here's what's new, for patients and for doctors.",
+  "alerts": "First, Auto Alerts. One check goes through every patient, and reminders go out by WhatsApp or SMS on their own. In this demo, delivery is simulated.",
+  "alerts_result": "Appointments, overdue tests and missed checkups are all covered. If a patient only agreed to SMS, it uses SMS. If they said no, nothing is sent.",
+  "approve": "For more sensitive messages, the clinic can choose to approve first. This medicine reminder goes out with one click.",
+  "qr": "Every patient gets a QR code, printed on their prescription. They scan it, enter their birth year, and their own health page opens on their phone.",
+  "portal": "Everything is in simple words, and one tap switches it to Urdu.",
+  "listen": "For patients who can't read, it can also read their medicine instructions aloud.",
+  "reports": "Patients can see their own results over time, what each test means, and the original report. When a result is outside the usual range, it tells them to ask their doctor.",
+  "medicine": "They tick each dose as they take it, so the doctor can see what the patient reports at home.",
+  "reading": "They can log their blood pressure too. If a reading crosses the clinic's limit, the patient is told what to do, and the doctor is alerted at once.",
+  "doctor_alert": "Back at the clinic, the alert is already waiting.",
+  "previsit": "Before the visit, patients can tell the doctor what's wrong, and ask a question.",
+  "checkin": "When they arrive, there's no need to queue at the desk. One tap checks them in, and they see their token and about how long they'll wait.",
+  "tv": "The waiting room screen updates by itself, showing first names only for privacy. When the doctor calls the next patient, it changes straight away.",
+  "emergency": "The emergency card is a QR code that shows allergies, conditions and medicines to any doctor who needs them.",
+  "share": "Need a second opinion? A private link shares the record for forty-eight hours, then ends by itself.",
+  "access": "And patients can see exactly who opened their record.",
+  "pulse": "Finally, Clinic Pulse shows the doctor the whole clinic at a glance.",
+  "close": "ClinicMind. Better care between visits, for patients and for doctors."
+}

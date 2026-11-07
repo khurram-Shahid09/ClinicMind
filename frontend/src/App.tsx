@@ -10,6 +10,11 @@ import Visit from './pages/Visit';
 import FollowUps from './pages/FollowUps';
 import EndOfDay from './pages/EndOfDay';
 import Activity from './pages/Activity';
+import Alerts from './pages/Alerts';
+import Pulse from './pages/Pulse';
+import Portal from './pages/Portal';
+import WaitingRoom from './pages/WaitingRoom';
+import { EmergencyCard, SharedRecord } from './pages/PublicCards';
 
 export default function App() {
   const [status, setStatus] = useState<any>(null);
@@ -29,6 +34,17 @@ export default function App() {
     location.pathname === '/' ? window.location.reload() : window.location.assign('/');
   };
 
+  if (/^\/(my|e|s|waiting-room)(\/|$)/.test(location.pathname)) {
+    return (
+      <Routes>
+        <Route path="/my/:token" element={<Portal />} />
+        <Route path="/e/:token" element={<EmergencyCard />} />
+        <Route path="/s/:token" element={<SharedRecord />} />
+        <Route path="/waiting-room" element={<WaitingRoom />} />
+      </Routes>
+    );
+  }
+
   if (status?.seeding) {
     return (
       <div className="page" style={{ textAlign: 'center', paddingTop: 120 }}>
@@ -46,6 +62,8 @@ export default function App() {
           <NavLink to="/" end>Today</NavLink>
           <NavLink to="/add-records">Add Records</NavLink>
           <NavLink to="/needs-checking">Needs Checking {status?.open_checks > 0 && <span className="count">{status.open_checks}</span>}</NavLink>
+          <NavLink to="/alerts">Auto Alerts {status?.doctor_alerts > 0 && <span className="count" style={{ background: 'var(--red)' }}>{status.doctor_alerts}</span>}</NavLink>
+          <NavLink to="/pulse">Clinic Pulse</NavLink>
           <NavLink to="/follow-ups">Follow-ups</NavLink>
           <NavLink to="/end-of-day">End of Day</NavLink>
           <NavLink to="/activity">Activity</NavLink>
@@ -67,6 +85,8 @@ export default function App() {
         <Route path="/follow-ups" element={<FollowUps />} />
         <Route path="/end-of-day" element={<EndOfDay />} />
         <Route path="/activity" element={<Activity />} />
+        <Route path="/alerts" element={<Alerts />} />
+        <Route path="/pulse" element={<Pulse />} />
       </Routes>
     </>
   );

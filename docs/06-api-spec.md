@@ -80,6 +80,43 @@ Approval returns `409 Conflict` if an allergy alert is unresolved or a medicine 
 | GET | `/wrap-up/today` | End-of-Day Wrap-Up | D6 |
 | GET | `/activity` | Activity log | R9 |
 
+## Patient page
+
+All routes need the `X-Birth-Year` header, except `hello`.
+
+| Method | Path | Purpose | Feature |
+|---|---|---|---|
+| GET | `/portal/{token}/hello` | First name for the sign-in screen | C4 |
+| GET | `/portal/{token}` | Everything shown on the patient's page | C5, C14 |
+| POST | `/portal/{token}/doses` | Tick a dose | C7 |
+| POST | `/portal/{token}/readings` | Add a home reading | C8 |
+| POST | `/portal/{token}/previsit` | Send symptoms and a question | C9 |
+| POST | `/portal/{token}/checkin` | Check in and get a token | C10 |
+| POST | `/portal/{token}/share` | Create a 48-hour link | C13 |
+| DELETE | `/portal/{token}/share/{id}` | Stop a link | C13 |
+| POST | `/portal/{token}/messages/{id}/reply` | Reply to a message | C1 |
+| GET | `/portal/{token}/source/{fact_id}` | Original report for a result | C5 |
+
+## Public cards
+
+| Method | Path | Purpose | Feature |
+|---|---|---|---|
+| GET | `/emergency/{token}` | Emergency card | C12 |
+| GET | `/shared/{token}` | Shared record, until the link ends | C13 |
+| GET | `/queue` | Waiting room screen, with first names only | C11 |
+
+## Clinic
+
+| Method | Path | Purpose | Feature |
+|---|---|---|---|
+| GET | `/automation` | Rules, messages and doctor alerts | C1 |
+| POST | `/automation/run` | Check all patients now | C1 |
+| PATCH | `/automation/rules/{code}` | Turn a rule on or off, or change how it sends | C1 |
+| POST | `/automation/messages/{id}/{approve or dismiss}` | Handle a message | C1 |
+| POST | `/queue/next` | Call the next patient | C10, C11 |
+| GET | `/patients/{id}/connected` | Patient QR details, ticks and readings | C4, C7, C8 |
+| GET | `/pulse` | Clinic Pulse | C16 |
+
 ## Demo
 
 | Method | Path | Purpose |
@@ -87,3 +124,4 @@ Approval returns `409 Conflict` if an allergy alert is unresolved or a medicine 
 | GET | `/status` | Demo date, doctor name and open checks |
 | POST | `/demo/reset` | Return to the starting point |
 | GET | `/demo/sample-audio` | Sample dictation audio |
+| GET | `/demo/urdu-instructions-audio` | Urdu read-aloud audio |

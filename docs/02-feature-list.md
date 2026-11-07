@@ -48,11 +48,15 @@ Report uploaded → Patient matched → Data extracted → Data verified
 
 The flow pauses only when an agent is unsure or a draft needs approval.
 
+## Connected features
+
+16 more features connect patients and clinics. See [Connected features](13-connected-features.md).
+
 ## Out of scope for version 1
 
 - Diagnosis or treatment suggestions
 - Appointments, billing and pharmacy
-- Live WhatsApp or SMS sending (drafts only)
+- A connected WhatsApp or SMS provider (delivery is simulated, and a hook is ready)
 - Use with real patient data
 - Integration with hospital or laboratory systems
 - Urdu handwriting recognition
@@ -60,4 +64,4 @@ The flow pauses only when an agent is unsure or a draft needs approval.
 ## Planned for version 2
 
 - **Patients Like This:** Finds similar patients from the doctor's own practice and shows what was recorded for them. It is postponed because it needs many past records and small numbers could be misread as proof.
-- **Live WhatsApp:** Report intake and approved messages through the official WhatsApp Business service.
+- **Live WhatsApp:** Patients send reports to the clinic through the official WhatsApp Business service.

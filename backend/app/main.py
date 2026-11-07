@@ -2,6 +2,7 @@ import asyncio
 import json
 import re
 import threading
+import time
 from collections import defaultdict
 from datetime import date
 
@@ -15,9 +16,11 @@ from .agents import brief as brief_agent
 from .agents import change, daily_ops, documents, followup, scribe, verification
 from .agents.reader import read_page
 from .db import Jsonb, init_schema, log_run, one, query, run
-from .services import alerts, replay, trends
+from .patient_api import router as patient_router
+from .services import alerts, automation, replay, trends
 
 app = FastAPI(title="ClinicMind API")
+app.include_router(patient_router)
 api = "/api/v1"
 TRUSTED = "status IN ('verified','corrected')"
 state = {"seeding": False, "error": None}
@@ -34,16 +37,31 @@ def _reset():
         state["seeding"] = False
 
 
+def _alert_loop():
+    """Checks the alert rules on a timer, so nobody has to press a button."""
+    while True:
+        time.sleep(config.AUTOMATION_INTERVAL * 60)
+        if state["seeding"]:
+            continue
+        try:
+            automation.run_rules()
+        except Exception as e:
+            print("Alert check failed:", e, flush=True)
+
+
 @app.on_event("startup")
 def startup():
     init_schema()
     if not one("SELECT id FROM patient LIMIT 1"):
         threading.Thread(target=_reset, daemon=True).start()
+    if config.AUTOMATION_INTERVAL > 0:
+        threading.Thread(target=_alert_loop, daemon=True).start()
 
 
 @app.get(api + "/status")
 def status():
-    return {**state, "today": config.TODAY.isoformat(), "doctor": config.DOCTOR_NAME, "open_checks": one("SELECT count(*) AS n FROM review_item WHERE status='open'")["n"]}
+    alerts_count = one("SELECT count(*) AS n FROM message WHERE audience='doctor' AND status='new'") if not state["seeding"] else {"n": 0}
+    return {**state, "today": config.TODAY.isoformat(), "doctor": config.DOCTOR_NAME, "open_checks": one("SELECT count(*) AS n FROM review_item WHERE status='open'")["n"], "doctor_alerts": alerts_count["n"]}
 
 
 @app.post(api + "/demo/reset")
@@ -52,6 +70,11 @@ def demo_reset():
         raise HTTPException(409, "Already resetting")
     _reset()
     return {"ok": True}
+
+
+@app.get(api + "/demo/urdu-instructions-audio")
+def urdu_audio():
+    return FileResponse(config.DEMO_DATA / "audio/urdu-instructions.wav", media_type="audio/wav")
 
 
 @app.get(api + "/demo/sample-audio")
@@ -73,7 +96,9 @@ def today():
     out = []
     for r in rows:
         b = brief_agent.get_brief(r["id"])
-        out.append({**_person(r), "brief": b, "alerts": change.missing_records(r["id"]), "has_trend": bool(trends.hidden_trends(r["id"]))})
+        queue = one("SELECT token_no, status FROM queue_entry WHERE visit_id=%s", (r["visit_id"],))
+        previsit = one("SELECT symptoms, note, question FROM previsit WHERE visit_id=%s", (r["visit_id"],))
+        out.append({**_person(r), "brief": b, "alerts": change.missing_records(r["id"]), "has_trend": bool(trends.hidden_trends(r["id"])), "queue": queue, "previsit": previsit})
     return out
 
 

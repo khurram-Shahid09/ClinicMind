@@ -6,6 +6,9 @@
 | `generate-documents.mjs` | Creates the messy document images |
 | `make_audio.py` | Creates the sample dictation and video narration |
 | `record-demo.mjs` | Drives the app and records the demo video |
-| `narration.json` | The video script |
+| `narration.json` | The first video's script |
+| `record-demo-2.mjs` | Records the second video, on patient and clinic features |
+| `make_audio_2.py` | Creates the second video's narration and the Urdu read-aloud audio |
+| `narration-2.json` | The second video's script |
 
 Run `npm install` here first. Use `node record-demo.mjs --dry` to test the demo without recording it. The app must be running.

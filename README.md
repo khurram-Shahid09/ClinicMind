@@ -4,7 +4,7 @@
 
 A doctor clicks **Replay** and watches five years of a patient's records play out in 30 seconds on a 3D body. The replay pauses on a slow change that is easy to miss when reports are read one at a time. One click opens the original scanned reports with the exact values highlighted.
 
-> **Status:** Working demo. All 22 version 1 features are built.
+> **Status:** Working demo with 38 features: 22 for the clinic's records and daily work, and 16 that connect patients and clinics.
 >
 > **Demo only:** This is a portfolio project that uses made-up patients. It is not a medical device, does not diagnose or recommend treatment, and must not be used with real patients in its current form.
 >
@@ -17,6 +17,9 @@ A doctor clicks **Replay** and watches five years of a patient's records play ou
 - **Finds what changed:** Uses code to calculate lab trends, medicine changes and missing records.
 - **Prepares the doctor:** Writes a Morning Clinic Brief for each patient on today's list.
 - **Reduces daily paperwork:** Drafts notes, prescriptions, Urdu instructions, letters and an end-of-day list, all for the doctor to approve.
+- **Reaches patients:** Sends automatic reminders and gives each patient a QR code to their own health page, in English or Urdu.
+- **Runs the waiting room:** Lets patients check in by QR code and shows a live token screen.
+- **Helps in an emergency:** Puts allergies, conditions and medicines behind an emergency QR code.
 
 ## Documentation
 
@@ -34,6 +37,7 @@ A doctor clicks **Replay** and watches five years of a patient's records play ou
 | 10 | [Safety and privacy](docs/10-safety-and-privacy.md) | Product rules and requirements before real use |
 | 11 | [Evaluation](docs/11-evaluation.md) | Measured accuracy and its limits |
 | 12 | [Build plan](docs/12-build-plan.md) | What was built, what changed and what's next |
+| 13 | [Connected features](docs/13-connected-features.md) | Auto Alerts, patient page, QR codes and connecting real WhatsApp or SMS |
 
 ## Run it
 
@@ -46,6 +50,8 @@ docker compose up --build
 Then open <http://localhost:3000>. The demo starts from saved AI results, so it needs no API key. To process new files or ask new questions, copy `.env.example` to `.env` and add a Gemini API key.
 
 The **Reset** button returns the demo to its starting point.
+
+WhatsApp and SMS delivery is simulated, so no real message is sent. See [Connected features](docs/13-connected-features.md) to connect a real service.
 
 ## Measured results
 

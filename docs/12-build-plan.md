@@ -2,7 +2,7 @@
 
 ## Status
 
-The first working demo and its video are complete. All 22 version 1 features are built.
+Two demo videos are complete. All 22 record and daily-work features are built, along with the 16 [connected features](13-connected-features.md).
 
 ## What changed from the original plan
 
@@ -26,7 +26,9 @@ The first working demo and its video are complete. All 22 version 1 features are
 | 3 | Test with real scans, used only with written permission and without sending them to a free AI tier |
 | 4 | Build a larger, separate accuracy test set |
 | 5 | Interview practising doctors, and measure whether it saves time |
-| 6 | Add **Patients Like This** and WhatsApp intake |
+| 6 | Connect a real WhatsApp or SMS provider, using made-up data until the requirements are met |
+| 7 | Add one-time phone codes in place of the birth-year check |
+| 8 | Add **Patients Like This** |
 
 ## Open decisions
 
