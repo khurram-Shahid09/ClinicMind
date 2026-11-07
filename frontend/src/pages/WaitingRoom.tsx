@@ -22,7 +22,7 @@ export default function WaitingRoom() {
         <div className="tv-next">
           <p>Next</p>
           {q.waiting.slice(0, 4).map((w: any, i: number) => (
-            <div key={w.token_no} className="tv-row"><strong>{w.token_no}</strong><span>{w.name}</span><small>about {(i + 1) * q.minutes_each} min</small></div>
+            <div key={w.token_no} className="tv-row"><strong>{w.token_no}</strong><span>{w.name}</span><small>{i === 0 ? 'next' : `about ${i * q.minutes_each} min`}</small></div>
           ))}
           {!q.waiting.length && <p className="tv-empty">No one is waiting.</p>}
         </div>

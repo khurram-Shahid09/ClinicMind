@@ -4,7 +4,8 @@ import { api } from '../api';
 import { SourceChip, SourceProvider, Sparkline } from '../components';
 
 const Body3D = lazy(() => import('../Body3D'));
-const DURATION = 30;
+// The app plays over 30 seconds. A demo recording can set a shorter time.
+const DURATION = (window as unknown as { __demoReplaySeconds?: number }).__demoReplaySeconds || 30;
 const LABS = [
   { code: 'hb', name: 'Hemoglobin', unit: 'g/dL' },
   { code: 'hba1c', name: 'HbA1c (blood sugar)', unit: '%' },

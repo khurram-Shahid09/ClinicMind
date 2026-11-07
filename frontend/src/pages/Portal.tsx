@@ -123,8 +123,8 @@ export default function Portal() {
         <section className="pt-card pt-hero" data-testid="pt-queue">
           {!q.checked_in && <>
             <p className="small">{t('next')}</p>
-            <div className="big-value">{prettyDate(d.today)}, {q.time}</div>
-            <p className="small" style={{ margin: '2px 0 10px' }}>{d.doctor}</p>
+            <div className="big-value" dir="ltr">{prettyDate(d.today)}, {q.time}</div>
+            <p className="small" style={{ margin: '2px 0 10px' }} dir="ltr">{d.doctor}</p>
             <button className="btn big" style={{ width: '100%' }} data-testid="check-in" onClick={() => post('/checkin')}>{t('checkin')}</button>
           </>}
           {q.checked_in && q.status === 'waiting' && <>
@@ -134,7 +134,7 @@ export default function Portal() {
           </>}
           {q.checked_in && q.status !== 'waiting' && <div className="big-value">{t('yourturn')}</div>}
         </section>
-      ) : d.next_visit && <section className="pt-card pt-hero"><p className="small">{t('next')}</p><div className="big-value">{prettyDate(d.next_visit.date)}, {d.next_visit.visit_time}</div></section>}
+      ) : d.next_visit && <section className="pt-card pt-hero"><p className="small">{t('next')}</p><div className="big-value" dir="ltr">{prettyDate(d.next_visit.date)}, {d.next_visit.visit_time}</div></section>}
 
       {q && <section className="pt-card" data-testid="pt-previsit">
         <h3>{t('prep')}</h3>

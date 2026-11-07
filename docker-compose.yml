@@ -22,6 +22,7 @@ services:
       DATABASE_URL: postgresql://clinicmind:clinicmind@db:5432/clinicmind
       DEMO_DATA_PATH: /demo-data
       STORAGE_PATH: /storage
+      SAVED_STEP_DELAY: ${SAVED_STEP_DELAY:-0.22}
     volumes:
       - ./backend/app:/srv/app
       - ./backend/tests:/srv/tests

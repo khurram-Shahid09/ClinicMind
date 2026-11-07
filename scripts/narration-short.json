@@ -1,0 +1,15 @@
+{
+  "hook": "Doctors often get only a few minutes with each patient, while the history sits in a pile of old paper. ClinicMind turns that pile into a clear story the doctor can check.",
+  "story": "With one click, five years of reports and medicines play out in seconds.",
+  "trend": "And here's what matters. Hemoglobin fell slowly, from fourteen point two to eleven point nine, over three years. Each report alone could look minor. ClinicMind flags it for the doctor, without guessing why.",
+  "proof": "One click opens the original report, with the exact line highlighted, so the doctor can check it.",
+  "board": "Behind the scenes, AI helpers sort, read and double-check every messy file.",
+  "check": "When a handwritten dose is unclear, it asks a person instead of guessing.",
+  "urdu": "The doctor can ask questions in Urdu, and get answers from the patient's own records.",
+  "alert": "While prescribing, it warns about an allergy buried in an old hospital letter.",
+  "alerts": "Reminders for tests and checkups go out automatically by WhatsApp or SMS. In this demo, delivery is simulated.",
+  "patient": "Every patient gets a QR code, printed on their prescription. They scan it, enter their birth year, and their own health page opens on their phone.",
+  "checkin": "When they arrive, there's no need to queue at the desk. One tap checks them in, and they see their token and about how long they'll wait.",
+  "emergency": "The emergency card is a QR code that shows allergies, conditions and medicines to any doctor who needs them.",
+  "close": "ClinicMind doesn't replace the doctor's judgment. It makes sure the doctor sees the patient's full story, with proof, before making a decision."
+}
